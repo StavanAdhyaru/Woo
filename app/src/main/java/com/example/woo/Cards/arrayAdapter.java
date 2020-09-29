@@ -22,13 +22,13 @@ public class arrayAdapter extends ArrayAdapter<cards> {
     public View getView(int position, View convertView, ViewGroup parent) {
         cards card_item = getItem(position);
         if (convertView == null) {
-
-
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
         }
         TextView name = (TextView)convertView.findViewById(R.id.name);
         ImageView image = (ImageView)convertView.findViewById(R.id.image);
-        name.setText(card_item.getName());
+        TextView aboutUser = (TextView)convertView.findViewById(R.id.aboutUser);
+        name.setText(card_item.getName()+", "+card_item.getUserAge());
+        aboutUser.setText(card_item.getAboutUser());
         switch(card_item.getProfileImageUrl()){
             case "default":
                 Glide.with(convertView.getContext()).load(R.mipmap.ic_launcher).into(image);

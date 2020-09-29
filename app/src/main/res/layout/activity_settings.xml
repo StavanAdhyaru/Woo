@@ -10,8 +10,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:background="@color/colorPrimary" />
+        android:layout_height="450dp"
+        android:background="@drawable/circular_bottom"
+        android:backgroundTint="@color/colorPrimary"/>
 
     <!--Top Header Layout-->
     <LinearLayout
@@ -39,6 +40,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirmImage"
+            android:fontFamily="@font/proximanovaregular"
+            android:textColor="#FFCF66"/>
 
     </LinearLayout>
 
@@ -62,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/circularbordersolid"
                 android:gravity="center"
+                android:backgroundTint="@color/colorPrimary"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -71,7 +79,7 @@
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:id="@+id/profileImage"
-                        android:background="@drawable/ic_person_2"/>
+                        android:background="@drawable/ic_person"/>
 
 
 
@@ -162,15 +170,18 @@
                                 android:text="Edit"
                                 android:fontFamily="@font/proximanovaregular"
                                 android:textColor="#FFCF66"
+                                android:id="@+id/edit_2"
                                 android:layout_marginEnd="10dp"
                                 android:textSize="14sp" />
                         </LinearLayout>
 
-                        <TextView
+                        <EditText
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="" />
+                            android:enabled="false"
+                            android:textSize="14sp"
+                            android:id="@+id/aboutUser"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -205,6 +216,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Edit"
+                            android:id="@+id/edit_1"
                             android:textColor="#FFCF66"
                             android:layout_marginEnd="10dp"
                             android:textSize="14sp" />
@@ -234,7 +246,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
                                 android:textSize="15sp"
+                                android:inputType="phone"
                                 android:id="@+id/phone"
+                                android:enabled="false"
+                                android:digits="0123456789+"
                                 android:textColor="@color/goodgrey"
                                 android:fontFamily="@font/proximanovaregular" />
                         </LinearLayout>
@@ -258,7 +273,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
                                 android:textColor="@color/goodgrey"
-                                android:text="sanskar@theindianappguy.com"
+                                android:id="@+id/userMailId"
                                 android:textSize="15sp"
                                 android:fontFamily="@font/proximanovaregular" />
                         </LinearLayout>
@@ -281,7 +296,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="20dp"
-                                android:text="Leeds, United Kingdom"
+                                android:id="@+id/userLocation"
                                 android:textSize="15sp"
                                 android:textColor="@color/goodgrey"
                                 android:fontFamily="@font/proximanovaregular" />

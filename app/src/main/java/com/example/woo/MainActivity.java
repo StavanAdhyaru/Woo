@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
                      if (!dataSnapshot.child("profileImageUrl").getValue().equals("default")) {
                          profileImageUrl = dataSnapshot.child("profileImageUrl").getValue().toString();
                      }
-                        cards item = new cards(dataSnapshot.getKey(), dataSnapshot.child("name").getValue().toString(), dataSnapshot.child("profileImageUrl").getValue().toString());
+                        cards item = new cards(dataSnapshot.getKey(), dataSnapshot.child("name").getValue().toString(), dataSnapshot.child("profileImageUrl").getValue().toString(),dataSnapshot.child("aboutUser").getValue().toString(),dataSnapshot.child("Age").getValue().toString());
                         rowItems.add(item);
                         arrayAdapter.notifyDataSetChanged();
                 }
@@ -187,12 +187,14 @@ public class MainActivity extends AppCompatActivity {
     public void goToSettings(View view) {
         Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
         return;
     }
 
     public void goToMatches(View view) {
         Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
         return;
     }
 }

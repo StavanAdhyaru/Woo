@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,9 +32,10 @@
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
         android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="450sp"
+        android:layout_height="700sp"
         app:rotation_degrees="15.5"
-        tools:context=".MyActivity" />
+        tools:context=".MyActivity"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

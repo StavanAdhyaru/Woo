@@ -109,7 +109,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                     userInfo.put("Birth Date", BDate);
                                     userInfo.put("profileImageUrl", "default");
                                     currentUserDb.updateChildren(userInfo);
-
                                 }
                             }
                         });
