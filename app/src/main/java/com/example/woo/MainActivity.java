@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private com.example.woo.Cards.arrayAdapter arrayAdapter;
     private int i;
     private FirebaseAuth mAuth;
+    float x1,x2,y1,y2;
     private String currentUId;
     private DatabaseReference usersDb;
     ListView listView;
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 cards obj = (cards) dataObject;
                 String userId = obj.getUserId();
                 usersDb.child(userId).child("connections").child("nope").child(currentUId).setValue(true);
-                Toast.makeText(MainActivity.this,"left",Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(MainActivity.this,"left",Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onRightCardExit(Object dataObject) {
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 String userId = obj.getUserId();
                 usersDb.child(userId).child("connections").child("yeps").child(currentUId).setValue(true);
                 isConnectionMatch(userId);
-                Toast.makeText(MainActivity.this,"right",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MainActivity.this,"right",Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(MainActivity.this,"clicked",Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(MainActivity.this,"clicked",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -196,5 +198,31 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
         return;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1=event.getX();
+                y1= event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+                if(x1<x2){
+
+                    Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+                }
+                else if (x1>x2){
+                    Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                }
+                break;
+        }
+        return false;
     }
 }

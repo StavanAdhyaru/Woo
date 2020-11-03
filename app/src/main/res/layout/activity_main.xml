@@ -13,21 +13,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_weight="1"
             android:layout_width="wrap_content"
+            android:layout_weight="0.33"
             android:layout_height="wrap_content"
             android:text="Settings"
             android:onClick="goToSettings" />
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Out"
-            android:onClick="LogoutUser" />
-        <Button
+            android:layout_weight="0.33"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Matches"
             android:onClick="goToMatches" />
+
+        <Button
+            android:layout_weight="0.33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="LogoutUser"
+            android:text="Sign Out" />
     </LinearLayout>
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"

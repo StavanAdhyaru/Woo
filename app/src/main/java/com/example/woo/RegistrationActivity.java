@@ -134,7 +134,7 @@ public class RegistrationActivity extends AppCompatActivity {
             mAge.setText(format);
             BDate = format;
             Age = calculateAge(c.getTimeInMillis());
-            Toast.makeText(RegistrationActivity.this, Integer.toString(Age),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(RegistrationActivity.this, Integer.toString(Age),Toast.LENGTH_SHORT).show();
         }
     };
     int calculateAge(long date){
@@ -157,5 +157,15 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+        return;
+
+        //super.onBackPressed();
     }
 }

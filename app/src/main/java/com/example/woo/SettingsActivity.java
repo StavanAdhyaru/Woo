@@ -18,6 +18,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.GenericTranscodeRequest;
 import com.bumptech.glide.Glide;
+import com.example.woo.Matches.MatchesActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -60,6 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
     private DatabaseReference mUserDatabase;
     private String userId, name, phone, profileImageUrl, userSex, userMail,AboutUser;
     private Uri resultUri;
+    float x1,x2,y1,y2;
     private FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
@@ -269,5 +272,24 @@ public class SettingsActivity extends AppCompatActivity {
             resultUri = imageUri;
             mProfileImage.setImageURI(resultUri);
         }
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1=event.getX();
+                y1= event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+                if (x1>x2){
+                    Intent intent = new Intent(SettingsActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                }
+                break;
+        }
+        return false;
     }
 }

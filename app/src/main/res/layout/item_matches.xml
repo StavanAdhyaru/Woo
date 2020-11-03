@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="20sp">
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="60sp"
         android:layout_height="60sp"
         android:src="@mipmap/ic_launcher"
@@ -14,14 +14,15 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:layout_gravity="center">
+      android:layout_gravity="center"
+      android:elevation="2dp">
    <TextView
        android:paddingBottom="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Match's Name"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textColor="@android:color/black"
         android:layout_gravity="center"
         android:id="@+id/MatchName"/>
@@ -32,5 +33,6 @@
         android:visibility="invisible"
         android:layout_gravity="center"
         android:id="@+id/Matchid"/>
+
   </LinearLayout>
 </LinearLayout>
